@@ -7,23 +7,32 @@
             Fléshi
         {% endblock %}
     </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 {% block body %}
 <body>
     <h1>Fléshi</h1>
 
     {% block form %}
-        <form method="POST">
-        {{ form.csrf_token }}
-            {{ form.email.label() }}
-            {{ form.email() }}
+       <div class="shadow-lg m-5 p-5  border rounded-5">
+            <form method="POST">
+            {{ form.csrf_token }}
+                <div class="mb-3">
+                    {{ form.email.label(class="form-label") }}
+                    {{ form.email(class="form-control") }}
+                </div>
 
-            {{ form.password.label() }}
-            {{ form.password() }}
+                <div class="mb-3">
+                    {{ form.password.label(class="form-label") }}
+                    {{ form.password(class="form-control") }}
+                </div>
 
-            {{ form.submit() }}
-        </form>
+                {{ form.submit(class="btn btn-primary mb-3") }}
+            </form>
+       </div>
     {% endblock %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 {% endblock %}
 </html>
